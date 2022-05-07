@@ -8,7 +8,7 @@ const divKeyboardWrapper = document.createElement('div');
 divKeyboardWrapper.classList.add('wrapper');
 divKeyboardWrapper.id = 'wrapper';
 divInput.classList.add('textArea')
-input.placeholder = 'Type here';
+input.placeholder = 'this virtual keyboard was created on MacOS';
 body.appendChild(divInput);
 body.appendChild(divKeyboardWrapper);
 divInput.appendChild(input);
@@ -40,7 +40,7 @@ const FIRST_ROW = ['§', '1', '2', '3', '4', '5', '6','7', '8', '9', '0', '-', '
 const SECOND_ROW = ['TAB', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']'];
 const THIRD_ROW = ['CAPS LOCK', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'ENTER'];
 const FORTH_ROW = ['SHIFT', '`', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', "/", 'SHIFT'];
-const FIFTH_ROW = ['CTRL', 'ALT', 'CMD⌘', 'SPACE', 'CMD⌘', 'ALT', 'ᐊ',  'ᐃ', 'ᐁ', 'ᐅ'];
+const FIFTH_ROW = ['CTRL', 'ALT', 'CMD⌘', ' ', 'CMD⌘', 'ALT', 'ᐊ',  'ᐃ', 'ᐁ', 'ᐅ'];
 
 
 
@@ -79,22 +79,73 @@ function getKeys () {
         if (i == FORTH_ROW.indexOf('SHIFT')){
             document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisibleShift'>" + FORTH_ROW[i] + "</div>";
         }
+        else if (i == FORTH_ROW.indexOf('SHIFT', [2])){
+            document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisibleShiftLeft'>" + FORTH_ROW[i] + "</div>";
+        }
         else{
             document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisible'>" + FORTH_ROW[i] + "</div>";
         }
       }
     
       for (var i = 0; i < FIFTH_ROW.length; i++) {
-        document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisible'>" + FIFTH_ROW[i] + "</div>";
+          if(i == FIFTH_ROW.indexOf('CTRL')){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCtrl'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('CMD⌘')){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCmd'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('CMD⌘', [3])){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCmd'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('ALT')){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleAlt'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('ALT', [3])){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleAlt'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf(' ')){
+            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleSpace'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('ᐃ')){
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowUp' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('ᐁ')){
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowDown' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else if(i == FIFTH_ROW.indexOf('ᐊ')){
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowLeft' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+          }
+          else{
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowRight' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+
+          }
       }
         
   }
   
   getKeys();
 
-//finding special characters in an array
-// let backspaceKey = FIRST_ROW.find(item => item == 'BACKSPACE');
-// const BACKSPACE_KEY = backspaceKey.classList.add('backspace');
+  function wrapArrows() {
+    let arrDiv = document.createElement('div');
+    let arrowR = document.getElementById('arrowRight');
+    let arrowL= document.getElementById('arrowLeft');
+    let arrowU= document.getElementById('arrowUp');
+    let arrowD= document.getElementById('arrowDown');
+    arrDiv.classList.add("arrowsWrapper");
+    fifthRow.appendChild(arrDiv);
+    arrDiv.appendChild(arrowR);
+    arrDiv.appendChild(arrowL);
+    arrDiv.appendChild(arrowU);
+    arrDiv.appendChild(arrowD);
+    // document.getElementById('arrows').appendChild(arrDiv);
+    // arrDiv.appendChild(document.getElementById('arrows'));
+}
+wrapArrows();
+//   const arrowsWrapper = document.createElement('div');
+//   arrowsWrapper.classList.add('arrowsWrapper')
+//   fifthRow.appendChild(arrowsWrapper);
+//   let arrows = fifthRow.getElementsByClassName('keyButtonVisibleArrow');
+//   arrowsWrapper.appendChild(arrows);
 
 
 
