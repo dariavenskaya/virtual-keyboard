@@ -1,5 +1,7 @@
 'use strict'
-//i'm really sorry for this long amateur code, this was my first time adding HTML elements via JS
+//i'm really sorry for this huge amateur code, this was my first time adding HTML elements via JS
+
+
 //creating textarea and keyboard wrapper
 const body = document.querySelector('body');
 const divInput = document.createElement('div');
@@ -48,75 +50,75 @@ const FIFTH_ROW = ['CTRL', 'ALT', 'CMD⌘', ' ', 'CMD⌘', 'ALT', 'ᐊ',  'ᐃ',
 function getKeys () {
     for (var i = 0; i < FIRST_ROW.length; i++) {
         if (i == FIRST_ROW.indexOf('BACKSPACE')){
-            document.getElementById("firstRow").innerHTML += "<div class='keyButtonVisibleBackspace'>" + FIRST_ROW[i] + "</div>";
+            document.getElementById("firstRow").innerHTML += "<div class='keyBackspace'>" + FIRST_ROW[i] + "</div>";
         }
         else {
-            document.getElementById("firstRow").innerHTML += "<div class='keyButtonVisible'>" + FIRST_ROW[i] + "</div>";
+            document.getElementById("firstRow").innerHTML += "<div class='key'>" + FIRST_ROW[i] + "</div>";
     }
     }
     for (var i = 0; i < SECOND_ROW.length; i++) {
         if (i == SECOND_ROW.indexOf('TAB')){
-            document.getElementById("secondRow").innerHTML += "<div class='keyButtonVisibleTab'>" + SECOND_ROW[i] + "</div>";
+            document.getElementById("secondRow").innerHTML += "<div class='keyTab'>" + SECOND_ROW[i] + "</div>";
         }
         else{
-        document.getElementById("secondRow").innerHTML += "<div class='keyButtonVisible'>" + SECOND_ROW[i] + "</div>";
+        document.getElementById("secondRow").innerHTML += "<div class='key'>" + SECOND_ROW[i] + "</div>";
       }
     }
       for (var i = 0; i < THIRD_ROW.length; i++) {
         if (i == THIRD_ROW.indexOf('ENTER')){
-            document.getElementById("thirdRow").innerHTML += "<div class='keyButtonVisibleEnter'>" + THIRD_ROW[i] + "</div>";
+            document.getElementById("thirdRow").innerHTML += "<div class='keyEnter'>" + THIRD_ROW[i] + "</div>";
         }
         else if (i == THIRD_ROW.indexOf('CAPS LOCK')){
-            document.getElementById("thirdRow").innerHTML += "<div class='keyButtonVisibleCaps'>" + THIRD_ROW[i] + "</div>";
+            document.getElementById("thirdRow").innerHTML += "<div class='keyCaps'>" + THIRD_ROW[i] + "</div>";
         }
         else {
-            document.getElementById("thirdRow").innerHTML += "<div class='keyButtonVisible'>" + THIRD_ROW[i] + "</div>";
+            document.getElementById("thirdRow").innerHTML += "<div class='key'>" + THIRD_ROW[i] + "</div>";
 
         }
       }
     
       for (var i = 0; i < FORTH_ROW.length; i++) {
         if (i == FORTH_ROW.indexOf('SHIFT')){
-            document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisibleShift'>" + FORTH_ROW[i] + "</div>";
+            document.getElementById("forthRow").innerHTML += "<div class='keyShift'>" + FORTH_ROW[i] + "</div>";
         }
         else if (i == FORTH_ROW.indexOf('SHIFT', [2])){
-            document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisibleShiftLeft'>" + FORTH_ROW[i] + "</div>";
+            document.getElementById("forthRow").innerHTML += "<div class='keyShiftLeft'>" + FORTH_ROW[i] + "</div>";
         }
         else{
-            document.getElementById("forthRow").innerHTML += "<div class='keyButtonVisible'>" + FORTH_ROW[i] + "</div>";
+            document.getElementById("forthRow").innerHTML += "<div class='key'>" + FORTH_ROW[i] + "</div>";
         }
       }
     
       for (var i = 0; i < FIFTH_ROW.length; i++) {
           if(i == FIFTH_ROW.indexOf('CTRL')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCtrl'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keyCtrl'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('CMD⌘')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCmd'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('CMD⌘', [3])){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleCmd'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ALT')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleAlt'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ALT', [3])){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleAlt'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf(' ')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyButtonVisibleSpace'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div class='keySpace'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ᐃ')){
-            document.getElementById("fifthRow").innerHTML += "<div id='arrowUp' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowUp' class='keyArrow'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ᐁ')){
-            document.getElementById("fifthRow").innerHTML += "<div id='arrowDown' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowDown' class='keyArrow'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ᐊ')){
-            document.getElementById("fifthRow").innerHTML += "<div id='arrowLeft' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowLeft' class='keyArrow'>" + FIFTH_ROW[i] + "</div>";
           }
           else{
-            document.getElementById("fifthRow").innerHTML += "<div id='arrowRight' class='keyButtonVisibleArrow'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id='arrowRight' class='keyArrow'>" + FIFTH_ROW[i] + "</div>";
 
           }
       }
@@ -137,15 +139,69 @@ function getKeys () {
     arrDiv.appendChild(arrowL);
     arrDiv.appendChild(arrowU);
     arrDiv.appendChild(arrowD);
-    // document.getElementById('arrows').appendChild(arrDiv);
-    // arrDiv.appendChild(document.getElementById('arrows'));
 }
 wrapArrows();
-//   const arrowsWrapper = document.createElement('div');
-//   arrowsWrapper.classList.add('arrowsWrapper')
-//   fifthRow.appendChild(arrowsWrapper);
-//   let arrows = fifthRow.getElementsByClassName('keyButtonVisibleArrow');
-//   arrowsWrapper.appendChild(arrows);
+
+
+//creating keys variables
+
+const keys = document.querySelectorAll('.key');
+const shift = document.querySelectorAll('.keyShift');
+const alt = document.querySelectorAll('.keyAlt');
+const cmd = document.querySelectorAll('.keyCmd');
+const ctrl = document.querySelectorAll('.keyCtrl');
+const space = document.querySelectorAll('.keySpace');
+const arrow = document.querySelectorAll('.keyArrow');
+const enter = document.querySelectorAll('.keyEnter');
+const caps = document.querySelectorAll('.keyCaps');
+const tab = document.querySelectorAll('.keyTab');
+const bakspace = document.querySelectorAll('.keyBackspace');
+
+
+//creating keys events
+
+for(let i = 0; i<keys.length; i++) {
+    keys[i].setAttribute('keyname', keys[i].innerText);
+    keys[i].setAttribute('lowerCaseName', keys[i].innerText.toLowerCase());
+};
+document.addEventListener('keydown', function(event){
+    for(let i = 0; i < keys.length; i++) {
+    if(event.key == keys[i].getAttribute('keyname') || event.key == keys[i].getAttribute('lowerCaseName')){
+        keys[i].classList.add('active');
+    }
+    }
+    if(event.code === 'Space'){
+        space.classList.toggle('active');
+    }
+
+});
+document.addEventListener('keyup', function(event){
+    for(let i = 0; i < keys.length; i++) {
+    if(event.key == keys[i].getAttribute('keyname') || event.key == keys[i].getAttribute('lowerCaseName')){
+        keys[i].classList.remove('active');
+        keys[i].classList.add('remove');
+    }
+    setTimeout(()=> {
+        keys[i].classList.remove('remove')
+    },1000)
+    }
+});
+
+
+// keys.onclick = function(){
+//     keys.forEach(x => x.classList.toggle('active'));
+// }
+// window.addEventListener('keydown', function(){
+//     // for(let i = 0; i<keys.length; i++) {
+//         keys.classList.toggle('.active');
+//     }
+// // }
+// )
+
+
+
+
+
 
 
 

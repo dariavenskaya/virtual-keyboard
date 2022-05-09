@@ -5,7 +5,7 @@ body
     justify-content: center
     align-items: center
     align-self: center
-    background-color: #fffcfe
+    background-color: #FBF8F1
 
 .wrapper 
     display: flex
@@ -14,14 +14,16 @@ body
     width: 100%
     overflow: hidden
     align-self: center
-    background-color: #f7dfe9
+    background-color: #FBF8F1
     padding: 10px
-    font-family: Verdana
+    font-family: verdana
     font-size: 1.1em
     text-align: center
     align-self: center
     line-height: 60px
-    color: #fffcfe
+    color: #fcfcf2
+    border: 3px solid #789395
+    border-radius: 5px
 
 .textArea
     display: flex
@@ -34,9 +36,11 @@ textarea
     display: flex
     width: 1000px
     height: 270px
-    outline-color:  #FFC4DD
-    border: 2px solid #f7dfe9
+    outline-color:  #789395
+    border: 3px solid #789395
     font-size: 1.6em
+    border-radius: 5px
+    background-color: #fcfcfa
 
 .firstRow, .thirdRow, .forthRow, .fifthRow 
     display: flex
@@ -48,54 +52,65 @@ textarea
     flex-direction: row
     justify-self: flex-start
 
-.keyButtonVisible, .keyButtonVisibleAlt, .keyButtonVisibleCtrl
+.key, .keyAlt, .keyCtrl
     width: 60px
     height: 60px
-    background-color: #82A284
     justify-content: center
     align-items: center
     margin: 5px 
     border-radius: 3px
+    background-color: #789395
 
-.keyButtonVisibleSpace
+.key:hover
+    cursor: pointer
+.keyAlt:hover
+    cursor: pointer
+.keyCtrl:hover
+    cursor: pointer
+
+.keySpace
     width: 370px
     height: 60px
-    background-color: #82A284
+    background-color: #789395
     margin: 5px
     border-radius: 3px
 
-.keyButtonVisibleEnter, .keyButtonVisibleCaps, .keyButtonVisibleBackspace
+.keySpace:hover
+    cursor: pointer
+
+
+.keyEnter, .keyCaps, .keyBackspace
     width: 120px
     height: 60px
-    background-color: #82A284
+    background-color: #789395
     justify-content: center
     align-items: center
     margin: 5px
     border-radius: 3px
 
-.keyButtonVisibleTab
+.keyTab
     width: 100px
     height: 60px
-    background-color: #82A284
+    background-color: #789395
     justify-content: center
     align-items: center
     margin: 5px
     border-radius: 3px
 
 
-.keyButtonVisibleShift, .keyButtonVisibleCmd
+.keyShift, .keyCmd
     width: 80px
     height: 60px
-    background-color: #82A284
+    background-color: #789395
     justify-content: center
     align-items: center
     margin: 5px
     border-radius: 3px
 
-.keyButtonVisibleShiftLeft
+.keyShiftLeft
     width: 160px
     height: 60px
-    background-color: #82A284
+    background-color: #789395
     justify-content: center
     align-items: center
     margin: 5px
@@ -113,11 +128,11 @@ textarea
     margin: 5px 
     border-radius: 3px
 
-.keyButtonVisibleArrow    
+.keyArrow    
     max-width: 80px
     width: 100%
     height: 29px
-    background-color: #82A284
+    background-color: #789395
     text-align: center
     align-self: center
     line-height: 29px
@@ -135,4 +150,15 @@ div#arrowDown
 div#arrowRight
     grid-area: right
 
-   
+.active
+    box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset
+
+.remove
+    animation: keysAnimation 0.5s reverse
+
+@keyframes keysAnimation
+    0% 
+        background-color: #789395
+    100% 
+        box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset
+    
