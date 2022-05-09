@@ -1,5 +1,5 @@
 'use strict'
-//i'm really sorry for this huge amateur code, this was my first time adding HTML elements via JS
+//i'm really sorry for this huge amateur code
 
 
 //creating textarea and keyboard wrapper
@@ -11,6 +11,7 @@ divKeyboardWrapper.classList.add('wrapper');
 divKeyboardWrapper.id = 'wrapper';
 divInput.classList.add('textArea')
 input.placeholder = 'this virtual keyboard was created on MacOS';
+input.setAttribute('autofocus', '')
 body.appendChild(divInput);
 body.appendChild(divKeyboardWrapper);
 divInput.appendChild(input);
@@ -48,7 +49,7 @@ const FIFTH_ROW = ['CTRL', 'ALT', 'CMD⌘', ' ', 'CMD⌘', 'ALT', 'ᐊ',  'ᐃ',
 
 //creating keys from arrays
 function getKeys () {
-    for (var i = 0; i < FIRST_ROW.length; i++) {
+    for (let i = 0; i < FIRST_ROW.length; i++) {
         if (i == FIRST_ROW.indexOf('BACKSPACE')){
             document.getElementById("firstRow").innerHTML += "<div class='keyBackspace'>" + FIRST_ROW[i] + "</div>";
         }
@@ -56,7 +57,7 @@ function getKeys () {
             document.getElementById("firstRow").innerHTML += "<div class='key'>" + FIRST_ROW[i] + "</div>";
     }
     }
-    for (var i = 0; i < SECOND_ROW.length; i++) {
+    for (let i = 0; i < SECOND_ROW.length; i++) {
         if (i == SECOND_ROW.indexOf('TAB')){
             document.getElementById("secondRow").innerHTML += "<div class='keyTab'>" + SECOND_ROW[i] + "</div>";
         }
@@ -64,7 +65,7 @@ function getKeys () {
         document.getElementById("secondRow").innerHTML += "<div class='key'>" + SECOND_ROW[i] + "</div>";
       }
     }
-      for (var i = 0; i < THIRD_ROW.length; i++) {
+      for (let i = 0; i < THIRD_ROW.length; i++) {
         if (i == THIRD_ROW.indexOf('ENTER')){
             document.getElementById("thirdRow").innerHTML += "<div class='keyEnter'>" + THIRD_ROW[i] + "</div>";
         }
@@ -77,33 +78,33 @@ function getKeys () {
         }
       }
     
-      for (var i = 0; i < FORTH_ROW.length; i++) {
+      for (let i = 0; i < FORTH_ROW.length; i++) {
         if (i == FORTH_ROW.indexOf('SHIFT')){
             document.getElementById("forthRow").innerHTML += "<div class='keyShift'>" + FORTH_ROW[i] + "</div>";
         }
         else if (i == FORTH_ROW.indexOf('SHIFT', [2])){
-            document.getElementById("forthRow").innerHTML += "<div class='keyShiftLeft'>" + FORTH_ROW[i] + "</div>";
+            document.getElementById("forthRow").innerHTML += "<div class='keyShiftRight'>" + FORTH_ROW[i] + "</div>";
         }
         else{
             document.getElementById("forthRow").innerHTML += "<div class='key'>" + FORTH_ROW[i] + "</div>";
         }
       }
     
-      for (var i = 0; i < FIFTH_ROW.length; i++) {
+      for (let i = 0; i < FIFTH_ROW.length; i++) {
           if(i == FIFTH_ROW.indexOf('CTRL')){
             document.getElementById("fifthRow").innerHTML += "<div class='keyCtrl'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('CMD⌘')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id = 'cmdLeft' class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('CMD⌘', [3])){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id = 'cmdRight' class='keyCmd'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ALT')){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id = 'altLeft' class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf('ALT', [3])){
-            document.getElementById("fifthRow").innerHTML += "<div class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
+            document.getElementById("fifthRow").innerHTML += "<div id = 'altRight' class='keyAlt'>" + FIFTH_ROW[i] + "</div>";
           }
           else if(i == FIFTH_ROW.indexOf(' ')){
             document.getElementById("fifthRow").innerHTML += "<div class='keySpace'>" + FIFTH_ROW[i] + "</div>";
@@ -146,19 +147,28 @@ wrapArrows();
 //creating keys variables
 
 const keys = document.querySelectorAll('.key');
-const shift = document.querySelectorAll('.keyShift');
-const alt = document.querySelectorAll('.keyAlt');
-const cmd = document.querySelectorAll('.keyCmd');
-const ctrl = document.querySelectorAll('.keyCtrl');
-const space = document.querySelectorAll('.keySpace');
+const shiftRight = document.querySelector('.keyShiftRight');
+const shiftLeft = document.querySelector('.keyShift');
+const altLeft = document.getElementById('altLeft');
+const altRight = document.getElementById('altRight');
+const cmdRight = document.getElementById('cmdRight');
+const cmdLeft = document.getElementById('cmdLeft');
+const ctrl = document.querySelector('.keyCtrl');
+const space = document.querySelector('.keySpace');
 const arrow = document.querySelectorAll('.keyArrow');
-const enter = document.querySelectorAll('.keyEnter');
-const caps = document.querySelectorAll('.keyCaps');
-const tab = document.querySelectorAll('.keyTab');
-const bakspace = document.querySelectorAll('.keyBackspace');
+const enter = document.querySelector('.keyEnter');
+const caps = document.querySelector('.keyCaps');
+const tab = document.querySelector('.keyTab');
+const backspace = document.querySelector('.keyBackspace');
+const arrowUp = document.getElementById('arrowUp');
+const arrowDown = document.getElementById('arrowDown');
+const arrowLeft = document.getElementById('arrowLeft');
+const arrowRight = document.getElementById('arrowRight');
 
 
-//creating keys events
+
+
+//creating keyboard events
 
 for(let i = 0; i<keys.length; i++) {
     keys[i].setAttribute('keyname', keys[i].innerText);
@@ -170,85 +180,286 @@ document.addEventListener('keydown', function(event){
         keys[i].classList.add('active');
     }
     }
-    if(event.code === 'Space'){
-        space.classList.toggle('active');
+    if(event.code == 'Space'){
+        space.classList.add('active');
     }
-
+    if(event.code == 'Tab'){
+        tab.classList.add('active');
+        event.preventDefault();
+    }
+    if(event.code == 'AltLeft'){
+        altLeft.classList.add('active');
+    }
+    if(event.code == 'AltRight'){
+        altRight.classList.add('active');
+    }
+    if(event.code == 'CapsLock'){
+        caps.classList.add('active');
+    }
+    if(event.code == 'Enter'){
+        enter.classList.add('active');
+    }
+    if(event.code == 'ControlLeft'){
+        ctrl.classList.add('active');
+    }
+    if(event.code == 'Backspace'){
+        backspace.classList.add('active');
+    }
+    if(event.code == 'ShiftRight'){
+        shiftRight.classList.add('active');
+    }
+    if(event.code == 'ShiftLeft'){
+        shiftLeft.classList.add('active');
+    }
+    if(event.code == 'ArrowUp'){
+        arrowUp.classList.add('active')
+    }
+    if(event.code == 'ArrowDown'){
+        arrowDown.classList.add('active')
+    }
+    if(event.code == 'ArrowLeft'){
+        arrowLeft.classList.add('active')
+    }
+    if(event.code == 'ArrowRight'){
+        arrowRight.classList.add('active')
+    }
+    if(event.code == 'MetaLeft'){
+        cmdLeft.classList.add('active')
+    }
+    if(event.code == 'MetaRight'){
+        cmdRight.classList.add('active')
+    }
 });
+
 document.addEventListener('keyup', function(event){
     for(let i = 0; i < keys.length; i++) {
     if(event.key == keys[i].getAttribute('keyname') || event.key == keys[i].getAttribute('lowerCaseName')){
         keys[i].classList.remove('active');
         keys[i].classList.add('remove');
     }
+    if(event.code == 'Space'){
+        space.classList.remove('active');
+        space.classList.add('remove');
+
+    }
+    if(event.code == 'Tab'){
+        tab.classList.remove('active');
+        tab.classList.add('remove');
+        event.preventDefault();
+    }
+    if(event.code == 'AltLeft'){
+        altLeft.classList.remove('active');
+        altLeft.classList.add('remove');
+    }
+    if(event.code == 'AltRight'){
+        altRight.classList.remove('active');
+        altRight.classList.add('remove');
+
+    }
+    if(event.code == 'CapsLock'){
+        caps.classList.remove('active');
+        caps.classList.add('remove');
+    }
+    if(event.code == 'Enter'){
+        enter.classList.remove('active');
+        enter.classList.add('remove');
+    }
+    if(event.code == 'ControlLeft'){
+        ctrl.classList.add('remove');
+        ctrl.classList.remove('active');
+    }
+    if(event.code == 'Backspace'){
+        backspace.classList.remove('active');
+        backspace.classList.add('remove');
+    }
+    if(event.code == 'ShiftRight'){
+        shiftRight.classList.remove('active');
+        shiftRight.classList.add('remove');
+    }
+    if(event.code == 'ShiftLeft'){
+        shiftLeft.classList.remove('active');
+        shiftLeft.classList.add('remove');
+
+    }
+    if(event.code == 'ArrowUp'){
+        arrowUp.classList.remove('active');
+        arrowUp.classList.add('remove');
+
+    }
+    if(event.code == 'ArrowDown'){
+        arrowDown.classList.remove('active');
+        arrowDown.classList.add('remove')
+
+    }
+    if(event.code == 'ArrowLeft'){
+        arrowLeft.classList.remove('active');
+        arrowLeft.classList.add('remove')
+
+    }
+    if(event.code == 'ArrowRight'){
+        arrowRight.classList.remove('active');
+        arrowRight.classList.add('remove')
+
+    }
+    if(event.code == 'MetaLeft'){
+        cmdLeft.classList.remove('active');
+        cmdLeft.classList.add('remove')
+
+    }
+    if(event.code == 'MetaRight'){
+        cmdRight.classList.remove('active');
+        cmdRight.classList.add('remove');
+
+    }
+
     setTimeout(()=> {
-        keys[i].classList.remove('remove')
-    },1000)
+        keys[i].classList.remove('remove');
+        cmdRight.classList.remove('remove');
+        cmdLeft.classList.remove('remove');
+        arrowRight.classList.remove('remove');
+        arrowLeft.classList.remove('remove');
+        arrowDown.classList.remove('remove');
+        arrowUp.classList.remove('remove');
+        shiftLeft.classList.remove('remove');
+        shiftRight.classList.remove('remove');
+        backspace.classList.remove('remove');
+        ctrl.classList.remove('remove');
+        enter.classList.remove('remove');
+        caps.classList.remove('remove');
+        altRight.classList.remove('remove');
+        altLeft.classList.remove('remove');
+        tab.classList.remove('remove');
+        space.classList.remove('remove');
+    },2000)
     }
 });
 
+//creating mouse events
 
-// keys.onclick = function(){
-//     keys.forEach(x => x.classList.toggle('active'));
-// }
-// window.addEventListener('keydown', function(){
-//     // for(let i = 0; i<keys.length; i++) {
-//         keys.classList.toggle('.active');
-//     }
-// // }
-// )
+shiftLeft.addEventListener('click', function(){
+    shiftLeft.classList.add('active');
+    setTimeout(()=>{
+        shiftLeft.classList.remove('active');
+    },500)
+});
+shiftRight.addEventListener('click', function(){
+    shiftRight.classList.add('active');
+    setTimeout(()=>{
+        shiftRight.classList.remove('active');
+    },500)
+});
+altLeft.addEventListener('click', function(){
+    altLeft.classList.add('active');
+    setTimeout(()=>{
+        altLeft.classList.remove('active');
+    },500)
+});
+altRight.addEventListener('click', function(){
+    altRight.classList.add('active');
+    setTimeout(()=>{
+        altRight.classList.remove('active');
+    },500)
+});
+backspace.addEventListener('click', function(){
+    let inputString = input.value;
+    input.value = inputString.substring(0, inputString.length - 1);
+    backspace.classList.add('active');
+    setTimeout(()=>{
+        backspace.classList.remove('active');
+    },500)
+});
+
+ctrl.addEventListener('click', function(){
+    ctrl.classList.add('active');
+    setTimeout(()=>{
+        ctrl.classList.remove('active');
+    },500)
+});
+enter.addEventListener('click', function(){
+    input.value = input.value + '\r\n';
+    enter.classList.add('active');
+    setTimeout(()=>{
+        enter.classList.remove('active');
+    },500)
+});
+space.addEventListener('click', function(){
+    input.value = input.value + ' ';
+    space.classList.add('active');
+    setTimeout(()=>{
+        space.classList.remove('active');
+    },500)
+});
+arrowDown.addEventListener('click', function(){
+    let p = '↓';
+    input.value = input.value + p;
+    arrowDown.classList.add('active');
+    setTimeout(()=>{
+        arrowDown.classList.remove('active');
+    },500)
+});
+arrowLeft.addEventListener('click', function(){
+    let p = '←';
+    input.value = input.value + p;
+    arrowLeft.classList.add('active');
+    setTimeout(()=>{
+        arrowLeft.classList.remove('active');
+    },500)
+});
+arrowRight.addEventListener('click', function(){
+    let p = '→';
+    input.value = input.value + p;
+    arrowRight.classList.add('active');
+    setTimeout(()=>{
+        arrowRight.classList.remove('active');
+    },500)
+});
+arrowUp.addEventListener('click', function(){
+    let p = '↑';
+    input.value = input.value + p;
+    arrowUp.classList.add('active');
+    setTimeout(()=>{
+        arrowUp.classList.remove('active');
+    },500)
+});
+tab.addEventListener('click', function(){
+    input.value = input.value + '   ';
+    tab.classList.add('active');
+    setTimeout(()=>{
+        tab.classList.remove('active');
+    },500)
+});
+caps.addEventListener('click', function(){
+    // input.value = input.value + input.value.toUpperCase();
+    caps.classList.toggle('active');
+});
+cmdLeft.addEventListener('click', function(){
+    cmdLeft.classList.add('active');
+    setTimeout(()=>{
+        cmdLeft.classList.remove('active');
+    },500)
+});
+cmdRight.addEventListener('click', function(){
+    cmdRight.classList.add('active');
+    setTimeout(()=>{
+        cmdRight.classList.remove('active');
+    },500)
+});
 
 
 
 
-
-
-
-
-
-
-//   const ENG_LOWERCASE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'g', 
-// 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// const ENG_UPPERCASE =  ENG_LOWERCASE.map(element => {
-// return element.toUpperCase();
-// });     
-
-// const CYRILLIC_LOWERCASE = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о',
-//                     'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
-// const CYRILLIC_UPPERCASE = CYRILLIC_LOWERCASE.map(element => {
-//     return element.toUpperCase();
-//   });     
-// const NUMBERS = ['1', '2', '3', '4', '5', '6','7', '8', '9', '0'];
-// const SYMBOLS = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', 
-//                 '_', '-', '=', '+', ',', '.', '/', '<', '>', '`', '~', "'", '"', ';', ':', '|', '[', ']', '{', '}', '§', '±'];
-// const SPECIAL_KEYS = ['tab', 'backspace', 'enter', 'shift', 'caps lock', 'del', 'ctrl', 'alt', 'cmd ⌘', 'ᐊ', 'ᐅ', 'ᐃ', 'ᐁ'];
-// console.log(SPECIAL_KEYS);
-
-
-// function getSpecialKeys () {
-//     for (var i = 0; i < SPECIAL_KEYS.length; i++) {
-//       document.getElementById("wrapper").innerHTML += "<div class='keyButton'>" + SPECIAL_KEYS[i] + "</div>";
-//     }
-//   }
-  
-//   getSpecialKeys();
-
-
-
-//   //eng Upper case
-//   function engUpKeys () {
-//     for (var i = 0; i < ENG_UPPERCASE.length; i++) {
-//       document.getElementById("wrapper").innerHTML += "<div class='keyButton'>" + ENG_UPPERCASE[i] + "</div>";
-//     }
-//   }
-//   engUpKeys();
-
-//  //cyrillic Upper Case 
-//   function cyrillicUpKeys () {
-//     for (var i = 0; i < CYRILLIC_UPPERCASE.length; i++) {
-//       document.getElementById("wrapper").innerHTML += "<div class='keyButtonCyrillic'>" + CYRILLIC_UPPERCASE[i] + "</div>";
-//     }
-//   }
-  
-//   cyrillicUpKeys();
-
+keys.forEach.call(keys, function(el){
+    el.addEventListener('click', function () {
+        el.classList.add('active');
+        setTimeout(()=>{
+            el.classList.remove('active');
+        },500)
+        })
+});
+keys.forEach((key) => {
+    key.addEventListener('click', write);
+    function write() {
+        let p = key.innerHTML.toLowerCase();
+        input.value = input.value + p;
+    }
+})

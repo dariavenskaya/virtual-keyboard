@@ -111,18 +111,23 @@ textarea {
   margin: 5px;
   border-radius: 3px;
   background-color: #789395;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .key:hover {
   cursor: pointer;
+  background-color: #667c7d;
 }
 
 .keyAlt:hover {
   cursor: pointer;
+  background-color: #667c7d;
 }
 
 .keyCtrl:hover {
   cursor: pointer;
+  background-color: #667c7d;
 }
 
 .keySpace {
@@ -131,10 +136,48 @@ textarea {
   background-color: #789395;
   margin: 5px;
   border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .keySpace:hover {
   cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyEnter:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyCaps:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyTab:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyShift:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyShiftRight:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyCmd:hover {
+  cursor: pointer;
+  background-color: #667c7d;
+}
+
+.keyBackspace:hover {
+  cursor: pointer;
+  background-color: #667c7d;
 }
 
 .keyEnter, .keyCaps, .keyBackspace {
@@ -149,6 +192,8 @@ textarea {
           align-items: center;
   margin: 5px;
   border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .keyTab {
@@ -179,7 +224,7 @@ textarea {
   border-radius: 3px;
 }
 
-.keyShiftLeft {
+.keyShiftRight {
   width: 160px;
   height: 60px;
   background-color: #789395;
@@ -220,6 +265,13 @@ textarea {
   line-height: 29px;
   color: #fffcfe;
   border-radius: 3px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.keyArrow:hover {
+  cursor: pointer;
+  background-color: #667c7d;
 }
 
 div#arrowUp {
@@ -250,12 +302,12 @@ div#arrowRight {
 }
 
 .active {
-  -webkit-box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
-          box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
+  -webkit-box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
+          box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
 }
 
 .remove {
-  animation: keysAnimation 0.5s reverse;
+  animation: keysAnimation 0.2s reverse;
 }
 
 @-webkit-keyframes keysAnimation {
@@ -263,8 +315,8 @@ div#arrowRight {
     background-color: #789395;
   }
   100% {
-    -webkit-box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
-            box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
+            box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
   }
 }
 
@@ -273,8 +325,8 @@ div#arrowRight {
     background-color: #789395;
   }
   100% {
-    -webkit-box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
-            box-shadow: 0px 5px 12px 12px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
+            box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset;
   }
 }
 /*# sourceMappingURL=style.css.map */
