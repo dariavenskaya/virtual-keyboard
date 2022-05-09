@@ -429,7 +429,6 @@ tab.addEventListener('click', function(){
     },500)
 });
 caps.addEventListener('click', function(){
-    // input.value = input.value + input.value.toUpperCase();
     caps.classList.toggle('active');
 });
 cmdLeft.addEventListener('click', function(){
@@ -445,9 +444,6 @@ cmdRight.addEventListener('click', function(){
     },500)
 });
 
-
-
-
 keys.forEach.call(keys, function(el){
     el.addEventListener('click', function () {
         el.classList.add('active');
@@ -459,7 +455,13 @@ keys.forEach.call(keys, function(el){
 keys.forEach((key) => {
     key.addEventListener('click', write);
     function write() {
-        let p = key.innerHTML.toLowerCase();
-        input.value = input.value + p;
+        if(caps.classList.contains('active')){
+            let p = key.innerHTML.toUpperCase();
+            input.value = input.value + p;
+        }
+        else{
+            let p = key.innerHTML.toLowerCase();
+            input.value = input.value + p;
+        }
     }
 })
