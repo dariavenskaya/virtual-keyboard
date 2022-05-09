@@ -1,0 +1,203 @@
+
+body
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    align-self: center
+    background-color: #FBF8F1
+
+.wrapper 
+    display: flex
+    flex-direction: column
+    max-width: 1030px
+    width: 100%
+    overflow: hidden
+    align-self: center
+    background-color: #FBF8F1
+    padding: 10px
+    font-family: verdana
+    font-size: 1.1em
+    text-align: center
+    align-self: center
+    line-height: 60px
+    color: #fcfcf2
+    border: 3px solid #789395
+    border-radius: 5px
+
+.textArea
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin: 10px
+
+textarea
+    display: flex
+    width: 1000px
+    height: 270px
+    outline-color:  #789395
+    border: 3px solid #789395
+    font-size: 1.6em
+    border-radius: 5px
+    background-color: #fcfcfa
+
+.firstRow, .thirdRow, .forthRow, .fifthRow 
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+.secondRow
+    display: flex
+    flex-direction: row
+    justify-self: flex-start
+
+.key, .keyAlt, .keyCtrl
+    width: 60px
+    height: 60px
+    justify-content: center
+    align-items: center
+    margin: 5px 
+    border-radius: 3px
+    background-color: #789395
+    transition: all 0.3s
+
+.key:hover
+    cursor: pointer
+    background-color: #667c7d
+
+.keyAlt:hover
+    cursor: pointer
+    background-color: #667c7d
+
+.keyCtrl:hover
+    cursor: pointer
+    background-color: #667c7d
+
+
+.keySpace
+    width: 370px
+    height: 60px
+    background-color: #789395
+    margin: 5px
+    border-radius: 3px
+    transition: all 0.3s
+
+
+.keySpace:hover
+    cursor: pointer
+    background-color: #667c7d
+
+.keyEnter:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyCaps:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyTab:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyShift:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyShiftRight:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyCmd:hover
+    cursor: pointer
+    background-color: #667c7d
+.keyBackspace:hover
+    cursor: pointer
+    background-color: #667c7d
+
+
+
+.keyEnter, .keyCaps, .keyBackspace
+    width: 120px
+    height: 60px
+    background-color: #789395
+    justify-content: center
+    align-items: center
+    margin: 5px
+    border-radius: 3px
+    transition: all 0.3s
+
+
+.keyTab
+    width: 100px
+    height: 60px
+    background-color: #789395
+    justify-content: center
+    align-items: center
+    margin: 5px
+    border-radius: 3px
+
+
+.keyShift, .keyCmd
+    width: 80px
+    height: 60px
+    background-color: #789395
+    justify-content: center
+    align-items: center
+    margin: 5px
+    border-radius: 3px
+
+.keyShiftRight
+    width: 160px
+    height: 60px
+    background-color: #789395
+    justify-content: center
+    align-items: center
+    margin: 5px
+    border-radius: 3px
+
+.arrowsWrapper
+    max-width: 259px
+    width: 100%
+    height: 60px
+    display: grid
+    grid-template-areas: "up up up" "left down right"    
+    grid-auto-flow: row
+    column-gap: 10px
+    row-gap: 2px
+    margin: 5px 
+    border-radius: 3px
+
+.keyArrow    
+    max-width: 80px
+    width: 100%
+    height: 29px
+    background-color: #789395
+    text-align: center
+    align-self: center
+    line-height: 29px
+    color: #fffcfe
+    border-radius: 3px
+    transition: all 0.3s
+.keyArrow:hover
+    cursor: pointer
+    background-color: #667c7d
+
+    
+div#arrowUp
+    grid-area: up
+    justify-self: center
+div#arrowLeft
+    grid-area: left
+div#arrowDown
+    grid-area: down
+div#arrowRight
+    grid-area: right
+
+.active
+    box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset
+
+.remove
+    animation: keysAnimation 0.2s reverse
+
+@keyframes keysAnimation
+    0% 
+        background-color: #789395
+    100% 
+        box-shadow: 0px 0px 2px 7px rgba(0, 0, 0, 0.25) inset
+    
